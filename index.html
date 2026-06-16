@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The September Standard — September 18, 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:        #B8902A;
+      --black:       #1a1a1a;
+      --white:       #ffffff;
+      --tint:        #fdf5e6;
+      --border-gold: #e0c57a;
+      --text-mid:    #5a4e3a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      color: var(--black);
+      background: var(--white);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      line-height: 1.15;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ─── Utility ─── */
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+
+    .btn-gold {
+      display: inline-block;
+      padding: 13px 32px;
+      background: var(--gold);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid var(--gold);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-gold:hover { background: transparent; color: var(--gold); }
+
+    .btn-outline {
+      display: inline-block;
+      padding: 13px 32px;
+      background: transparent;
+      color: var(--gold);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid var(--gold);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { background: var(--gold); color: var(--white); }
+
+    /* ─── Nav ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border-gold);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 68px;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--black);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--black);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta { flex-shrink: 0; }
+    .nav-cta .btn-gold { padding: 10px 24px; font-size: 11px; }
+
+    /* ─── Hero ─── */
+    #hero {
+      background: var(--tint);
+      padding: 100px 48px 112px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-gold);
+    }
+
+    .hero-logo {
+      margin: 0 auto 48px;
+      width: 240px;
+    }
+    .hero-logo img { width: 100%; margin: 0 auto; }
+
+    #hero h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      color: var(--black);
+      margin-bottom: 20px;
+    }
+
+    .hero-meta {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text-mid);
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-venue {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 10px;
+    }
+
+    .hero-beneficiary {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 52px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ─── About ─── */
+    #about {
+      padding: 96px 48px;
+      background: var(--white);
+      border-bottom: 1px solid var(--border-gold);
+    }
+
+    .about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-text h2 {
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 300;
+      color: var(--black);
+      margin-bottom: 24px;
+    }
+
+    .about-text p {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border-gold);
+      border: 1px solid var(--border-gold);
+    }
+
+    .stat-cell {
+      background: var(--tint);
+      padding: 36px 24px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 46px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+
+    /* ─── Venue ─── */
+    #venue {
+      padding: 96px 48px;
+      background: var(--tint);
+      border-bottom: 1px solid var(--border-gold);
+    }
+
+    .venue-inner { max-width: 1100px; margin: 0 auto; }
+    .venue-inner > .section-label { margin-bottom: 12px; }
+
+    .venue-inner > h2 {
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .venue-desc {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      max-width: 680px;
+      margin-bottom: 48px;
+    }
+
+    /* ─── Venue Slideshow ─── */
+    .venue-slideshow {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      overflow: hidden;
+      margin-bottom: 48px;
+      background: #e8deca;
+    }
+
+    .venue-slideshow img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.9s ease;
+    }
+    .venue-slideshow img.active { opacity: 1; }
+
+    .slide-dots {
+      position: absolute;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 2;
+    }
+
+    .slide-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.45);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .slide-dot.active { background: var(--white); }
+
+    .venue-info {
+      display: flex;
+      gap: 64px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .venue-info h3 { font-size: 26px; font-weight: 400; margin-bottom: 8px; }
+
+    .venue-info p { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+
+    .venue-info a.venue-link {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border-bottom: 1px solid var(--border-gold);
+      padding-bottom: 1px;
+      transition: border-color 0.2s;
+    }
+    .venue-info a.venue-link:hover { border-color: var(--gold); }
+
+    .venue-divider {
+      width: 1px;
+      height: 60px;
+      background: var(--border-gold);
+      align-self: center;
+    }
+
+    /* ─── Fundraising Tracker ─── */
+    #donate {
+      padding: 96px 48px;
+      background: var(--black);
+      border-bottom: 1px solid #333;
+      text-align: center;
+    }
+
+    #donate .section-label { color: var(--border-gold); }
+
+    #donate h2 {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    #donate .donate-sub {
+      font-size: 14px;
+      color: #888;
+      letter-spacing: 0.06em;
+      margin-bottom: 56px;
+    }
+
+    .tracker-wrap {
+      max-width: 720px;
+      margin: 0 auto 52px;
+    }
+
+    .tracker-amounts {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 16px;
+    }
+
+    .tracker-raised {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .tracker-goal {
+      font-size: 13px;
+      color: #666;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .tracker-bar-bg {
+      width: 100%;
+      height: 6px;
+      background: #333;
+      margin-bottom: 20px;
+    }
+
+    .tracker-bar-fill {
+      height: 100%;
+      background: var(--gold);
+      width: 0%;
+      transition: width 1.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .tracker-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #666;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .tracker-donors { color: var(--border-gold); }
+
+    .donate-cta-row {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ─── Sponsors ─── */
+    #sponsors {
+      padding: 96px 48px;
+      background: var(--white);
+      border-bottom: 1px solid var(--border-gold);
+    }
+
+    .sponsors-inner { max-width: 1100px; margin: 0 auto; }
+    .sponsors-inner > .section-label { margin-bottom: 12px; }
+
+    .sponsors-inner > h2 {
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 300;
+      margin-bottom: 56px;
+    }
+
+    .sponsor-tier { margin-bottom: 52px; }
+
+    .tier-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-gold);
+    }
+
+    .tier-grid { display: grid; gap: 16px; }
+    .tier-grid.presenting { grid-template-columns: 1fr; }
+    .tier-grid.gold       { grid-template-columns: repeat(3, 1fr); }
+    .tier-grid.silver     { grid-template-columns: repeat(4, 1fr); }
+
+    .sponsor-slot {
+      border: 1.5px dashed var(--border-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #c5a96b;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .sponsor-slot.presenting { height: 140px; }
+    .sponsor-slot.gold       { height: 110px; }
+    .sponsor-slot.silver     { height: 90px; }
+
+    .sponsor-cta {
+      background: var(--tint);
+      border: 1px solid var(--border-gold);
+      padding: 52px 48px;
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    .sponsor-cta h3 { font-size: 30px; font-weight: 300; margin-bottom: 12px; }
+    .sponsor-cta p  { font-size: 14px; color: var(--text-mid); margin-bottom: 28px; }
+
+    /* ─── Tickets ─── */
+    #tickets {
+      padding: 96px 48px;
+      background: var(--tint);
+      border-bottom: 1px solid var(--border-gold);
+      text-align: center;
+    }
+
+    .ticket-card {
+      max-width: 520px;
+      margin: 0 auto;
+      background: var(--white);
+      border: 1px solid var(--border-gold);
+      padding: 64px 56px;
+    }
+
+    .ticket-card .section-label { display: block; }
+
+    .ticket-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 80px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .ticket-price sup {
+      font-size: 36px;
+      vertical-align: super;
+      line-height: 0;
+    }
+
+    .ticket-desc {
+      font-size: 13px;
+      color: var(--text-mid);
+      letter-spacing: 0.06em;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      background: var(--black);
+      padding: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-left h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .footer-left p {
+      font-size: 12px;
+      color: #888;
+      letter-spacing: 0.06em;
+      line-height: 1.8;
+    }
+
+    .footer-right {
+      text-align: right;
+      font-size: 12px;
+      color: #888;
+      line-height: 2;
+      letter-spacing: 0.04em;
+    }
+
+    .footer-right a { color: var(--border-gold); transition: color 0.2s; }
+    .footer-right a:hover { color: var(--gold); }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; height: 60px; }
+      .nav-links { display: none; }
+
+      #hero, #about, #venue, #donate, #sponsors, #tickets { padding: 72px 24px; }
+
+      .about-inner { grid-template-columns: 1fr; gap: 48px; }
+      .stats-grid  { grid-template-columns: 1fr 1fr; }
+
+      .tier-grid.gold   { grid-template-columns: 1fr 1fr; }
+      .tier-grid.silver { grid-template-columns: 1fr 1fr; }
+
+      .venue-divider { display: none; }
+      .venue-info { flex-direction: column; gap: 24px; }
+
+      footer { padding: 40px 24px; flex-direction: column; align-items: flex-start; }
+      .footer-right { text-align: left; }
+
+      .sponsor-cta { padding: 40px 24px; }
+      .ticket-card { padding: 48px 28px; }
+
+      .tracker-amounts { flex-direction: column; gap: 8px; }
+    }
+
+    @media (max-width: 560px) {
+      .hero-logo { width: 180px; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .tier-grid.gold, .tier-grid.silver { grid-template-columns: 1fr 1fr; }
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .donate-cta-row { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Nav ─── -->
+  <nav>
+    <span class="nav-logo">The September Standard</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#venue">Venue</a></li>
+      <li><a href="#sponsors">Sponsors</a></li>
+      <li><a href="#donate">Donate</a></li>
+      <li><a href="#tickets">Tickets</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://www.eventbrite.com/e/the-2026-september-standard-gala-tickets-1991873065960" target="_blank" class="btn-gold">Get Tickets</a>
+    </div>
+  </nav>
+
+  <!-- ─── Hero ─── -->
+  <section id="hero">
+    <div class="hero-logo">
+      <img src="SeptemberStandardNYC-removebg.png" alt="The September Standard" />
+    </div>
+    <h1>The September Standard</h1>
+    <p class="hero-meta">Friday, September 18, 2026 &nbsp;&middot;&nbsp; 8:00 PM – 11:00 PM</p>
+    <p class="hero-venue">74Wythe &nbsp;&middot;&nbsp; Brooklyn, NY</p>
+    <p class="hero-beneficiary">Benefiting Memorial Sloan Kettering Cancer Center</p>
+    <div class="hero-ctas">
+      <a href="https://www.eventbrite.com/e/the-2026-september-standard-gala-tickets-1991873065960" target="_blank" class="btn-gold">Get Tickets &nbsp;&mdash;&nbsp; $200</a>
+      <a href="mailto:septemberstandardnyc@gmail.com" class="btn-outline">Become a Sponsor</a>
+    </div>
+  </section>
+
+  <!-- ─── About ─── -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-text">
+        <p class="section-label">About the Evening</p>
+        <h2>An Evening of Community, Celebration & Purpose</h2>
+        <p>The September Standard is an intimate community gala bringing together 400 friends, families, and supporters for a night of cocktails, open bar, hors d'oeuvres, and live programming at 74Wythe in Williamsburg, Brooklyn. Doors open at 7:30 PM; the main event runs 8:00–11:00 PM. We recommend eating beforehand — this is a night to celebrate, not sit.</p>
+        <p>After the formal programming wraps at 11, the party continues at a TBD location nearby for pizza, great music, and the kind of conversation that only happens when the night gets going. Details to follow.</p>
+        <p>All proceeds benefit Memorial Sloan Kettering Cancer Center — one of the world's foremost cancer research and treatment institutions. MSK's work spans pioneering clinical trials, compassionate patient care, and scientific discovery that reaches patients around the globe. This is our community's way of holding the line for them, year after year.</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-cell">
+          <div class="stat-number">400</div>
+          <div class="stat-label">Guests Expected</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-number">Open<br>Bar</div>
+          <div class="stat-label">+ Hors d'oeuvres</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-number">8–11</div>
+          <div class="stat-label">PM Main Event</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-number">MSK</div>
+          <div class="stat-label">Beneficiary</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Venue ─── -->
+  <section id="venue">
+    <div class="venue-inner">
+      <p class="section-label">The Venue</p>
+      <h2>74Wythe, Williamsburg</h2>
+      <p class="venue-desc">Fifteen thousand square feet across three stories and four interconnected spaces — anchored by a rooftop terrace with unobstructed views of the Manhattan skyline and the Brooklyn waterfront. It's the kind of place that makes the night feel like it matters.</p>
+      <div class="venue-slideshow" id="venueSlideshow">
+        <img src="74Wythe-1.png" alt="74Wythe venue" class="active" />
+        <img src="74Wythe-2.png" alt="74Wythe venue" />
+        <img src="74Wythe-3.png" alt="74Wythe venue" />
+        <div class="slide-dots">
+          <button class="slide-dot active" data-index="0"></button>
+          <button class="slide-dot" data-index="1"></button>
+          <button class="slide-dot" data-index="2"></button>
+        </div>
+      </div>
+      <div class="venue-info">
+        <div>
+          <h3>74Wythe</h3>
+          <p>74 Wythe Avenue<br />Williamsburg, Brooklyn, NY 11249</p>
+          <a href="https://www.74wythe.com" target="_blank" class="venue-link">Visit Venue Website</a>
+        </div>
+        <div class="venue-divider"></div>
+        <div>
+          <h3>Event Hours</h3>
+          <p>Doors open at 7:30 PM<br />Main event: 8:00 PM – 11:00 PM<br />After-party: 11:00 PM – 2:00 AM (TBD)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Fundraising Tracker ─── -->
+  <section id="donate">
+    <p class="section-label">Live Fundraising</p>
+    <h2>Help Us Reach Our Goal</h2>
+    <p class="donate-sub">Every dollar raised goes directly to Memorial Sloan Kettering Cancer Center.</p>
+
+    <div class="tracker-wrap">
+      <div class="tracker-amounts">
+        <div class="tracker-raised" id="trackerRaised">$0</div>
+        <div class="tracker-goal" id="trackerGoalLabel">of $[INSERT GOAL] goal</div>
+      </div>
+      <div class="tracker-bar-bg">
+        <div class="tracker-bar-fill" id="trackerFill"></div>
+      </div>
+      <div class="tracker-meta">
+        <span class="tracker-donors" id="trackerDonors">0 donors</span>
+        <span id="trackerPct">0% funded</span>
+      </div>
+    </div>
+
+    <div class="donate-cta-row">
+      <a href="https://www.eventbrite.com/e/the-2026-september-standard-gala-tickets-1991873065960" target="_blank" class="btn-gold">Donate Now</a>
+      <a href="mailto:septemberstandardnyc@gmail.com" class="btn-outline" style="color:var(--border-gold);border-color:var(--border-gold);">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- ─── Sponsors ─── -->
+  <section id="sponsors">
+    <div class="sponsors-inner">
+      <p class="section-label">Our Supporters</p>
+      <h2>Thank You to Our Sponsors</h2>
+
+      <div class="sponsor-tier">
+        <div class="tier-label">Presenting Sponsor</div>
+        <div class="tier-grid presenting">
+          <div class="sponsor-slot presenting">Presenting Sponsor</div>
+        </div>
+      </div>
+
+      <div class="sponsor-tier">
+        <div class="tier-label">Gold Sponsors</div>
+        <div class="tier-grid gold">
+          <div class="sponsor-slot gold">Gold Sponsor</div>
+          <div class="sponsor-slot gold">Gold Sponsor</div>
+          <div class="sponsor-slot gold">Gold Sponsor</div>
+        </div>
+      </div>
+
+      <div class="sponsor-tier">
+        <div class="tier-label">Silver Sponsors</div>
+        <div class="tier-grid silver">
+          <div class="sponsor-slot silver">Silver Sponsor</div>
+          <div class="sponsor-slot silver">Silver Sponsor</div>
+          <div class="sponsor-slot silver">Silver Sponsor</div>
+          <div class="sponsor-slot silver">Silver Sponsor</div>
+        </div>
+      </div>
+
+      <div class="sponsor-cta">
+        <h3>Interested in Sponsoring?</h3>
+        <p>Sponsorship opportunities are available at every level. Join us in making a meaningful difference.</p>
+        <a href="mailto:septemberstandardnyc@gmail.com" class="btn-gold">Become a Sponsor</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Tickets ─── -->
+  <section id="tickets">
+    <p class="section-label">Join Us</p>
+    <div class="ticket-card">
+      <p class="section-label">General Admission</p>
+      <div class="ticket-price"><sup>$</sup>200</div>
+      <p class="ticket-desc">
+        Includes hors d'oeuvres &amp; open bar<br />
+        Friday, September 18, 2026 · 8:00 PM – 11:00 PM<br />
+        All proceeds benefit Memorial Sloan Kettering Cancer Center
+      </p>
+      <a href="https://www.eventbrite.com/e/the-2026-september-standard-gala-tickets-1991873065960" target="_blank" class="btn-gold">Get Tickets on Eventbrite</a>
+    </div>
+  </section>
+
+  <!-- ─── Footer ─── -->
+  <footer>
+    <div class="footer-left">
+      <h4>The September Standard</h4>
+      <p>
+        Friday, September 18, 2026 &nbsp;&middot;&nbsp; 8:00 PM – 11:00 PM<br />
+        74Wythe &nbsp;&middot;&nbsp; 74 Wythe Avenue, Brooklyn, NY
+      </p>
+    </div>
+    <div class="footer-right">
+      <a href="mailto:septemberstandardnyc@gmail.com">septemberstandardnyc@gmail.com</a><br />
+      &copy; 2026 The September Standard. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    /* ─── Fundraising tracker ─── */
+    /* Update these two values whenever you want to refresh the display */
+    const AMOUNT_RAISED = 0;
+    const GOAL          = 30000;
+    const DONOR_COUNT   = 0;
+
+    (function () {
+      const fillEl   = document.getElementById('trackerFill');
+      const raisedEl = document.getElementById('trackerRaised');
+      const goalEl   = document.getElementById('trackerGoalLabel');
+      const donorsEl = document.getElementById('trackerDonors');
+      const pctEl    = document.getElementById('trackerPct');
+
+      function fmt(n) {
+        return '$' + n.toLocaleString('en-US');
+      }
+
+      const pct = GOAL > 0 ? Math.min((AMOUNT_RAISED / GOAL) * 100, 100) : 0;
+
+      raisedEl.textContent = fmt(AMOUNT_RAISED);
+      goalEl.textContent   = GOAL > 0 ? 'of ' + fmt(GOAL) + ' goal' : 'Goal coming soon';
+      donorsEl.textContent = DONOR_COUNT + (DONOR_COUNT === 1 ? ' donor' : ' donors');
+      pctEl.textContent    = Math.round(pct) + '% funded';
+
+      /* Animate bar on load */
+      requestAnimationFrame(function () {
+        setTimeout(function () {
+          fillEl.style.width = pct + '%';
+        }, 200);
+      });
+    })();
+
+    /* ─── Venue slideshow ─── */
+    (function () {
+      const slides = document.querySelectorAll('#venueSlideshow img');
+      const dots   = document.querySelectorAll('#venueSlideshow .slide-dot');
+      let current  = 0;
+      let timer;
+
+      function goTo(n) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = (n + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+      }
+
+      function next() { goTo(current + 1); }
+      function startTimer() { timer = setInterval(next, 4000); }
+      function resetTimer()  { clearInterval(timer); startTimer(); }
+
+      dots.forEach(function (dot) {
+        dot.addEventListener('click', function () {
+          goTo(parseInt(this.dataset.index));
+          resetTimer();
+        });
+      });
+
+      startTimer();
+    })();
+  </script>
+
+</body>
+</html>
