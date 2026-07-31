@@ -448,6 +448,92 @@
       flex-wrap: wrap;
     }
 
+    /* ─── Auction ─── */
+    #auction {
+      padding: 96px 48px;
+      background: var(--white);
+      border-bottom: 1px solid var(--border-gold);
+    }
+
+    .auction-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .auction-inner > .section-label { margin-bottom: 12px; }
+
+    .auction-inner > h2 {
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 300;
+      margin-bottom: 12px;
+    }
+
+    .auction-inner > .auction-intro {
+      font-size: 15px;
+      color: var(--text-mid);
+      max-width: 600px;
+      margin-bottom: 56px;
+      line-height: 1.8;
+    }
+
+    .auction-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+    }
+
+    .auction-card {
+      border: 1px solid var(--border-gold);
+      overflow: hidden;
+    }
+
+    .auction-card-photo {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+    }
+
+    .auction-card-body {
+      padding: 28px 28px 32px;
+      background: var(--tint);
+    }
+
+    .auction-card-logo {
+      height: 36px;
+      width: auto;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .auction-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+
+    .auction-card-desc {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .auction-card-link {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border-bottom: 1px solid var(--border-gold);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+
+    .auction-card-link:hover { border-color: var(--gold); }
+
     /* ─── Sponsors ─── */
     #sponsors {
       padding: 96px 48px;
@@ -591,7 +677,7 @@
       nav { padding: 0 24px; height: 60px; }
       .nav-links { display: none; }
 
-      #hero, #about, #venue, #donate, #sponsors, #tickets { padding: 72px 24px; }
+      #hero, #about, #venue, #donate, #auction, #sponsors, #tickets { padding: 72px 24px; }
 
       .about-inner { grid-template-columns: 1fr; gap: 48px; }
       .stats-grid  { grid-template-columns: 1fr 1fr; }
@@ -629,6 +715,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#venue">Venue</a></li>
       <li><a href="#donate">Donate</a></li>
+      <li><a href="#auction">Auction</a></li>
       <li><a href="#tickets">Tickets</a></li>
     </ul>
     <div class="nav-cta">
@@ -736,6 +823,28 @@
     <div class="donate-cta-row">
       <a href="https://give.mskcc.org/site/TR?team_id=110733&fr_id=4492&pg=team" target="_blank" class="btn-gold">Donate Now</a>
       <a href="mailto:septemberstandardnyc@gmail.com" class="btn-outline" style="color:var(--border-gold);border-color:var(--border-gold);">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- ─── Auction & Raffle ─── -->
+  <section id="auction">
+    <div class="auction-inner">
+      <p class="section-label">Raffle &amp; Auction</p>
+      <h2>Bid on the Night</h2>
+      <p class="auction-intro">Local businesses and community partners are donating experiences and packages to be raffled and auctioned on the night of the event. More to come — check back soon.</p>
+      <div class="auction-grid">
+
+        <div class="auction-card">
+          <img src="Othership Environment.png" alt="Othership" class="auction-card-photo" />
+          <div class="auction-card-body">
+            <img src="Othership Logo.png" alt="Othership" class="auction-card-logo" />
+            <div class="auction-card-title">5-Class Pack</div>
+            <p class="auction-card-desc">Othership is New York City's premier breathwork and cold plunge studio — a space designed to help you reset, recover, and reconnect. One lucky guest will win a 5-class pack to experience it firsthand.</p>
+            <a href="https://www.othership.us/" target="_blank" class="auction-card-link">Check out Othership</a>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
