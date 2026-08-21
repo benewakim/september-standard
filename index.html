@@ -450,14 +450,16 @@
 
     /* ─── Auction ─── */
     #auction {
-      padding: 96px 48px;
+      padding: 80px 0 80px;
       background: var(--white);
       border-bottom: 1px solid var(--border-gold);
+      overflow: hidden;
     }
 
     .auction-inner {
       max-width: 1100px;
       margin: 0 auto;
+      padding: 0 48px;
     }
 
     .auction-inner > .section-label { margin-bottom: 12px; }
@@ -472,57 +474,74 @@
       font-size: 15px;
       color: var(--text-mid);
       max-width: 600px;
-      margin-bottom: 56px;
+      margin-bottom: 40px;
       line-height: 1.8;
     }
 
-    .auction-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 32px;
+    /* ─── Raffle Carousel ─── */
+    .auction-carousel {
+      overflow: hidden;
+      width: 100%;
+      margin-bottom: 0;
+    }
+
+    .auction-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+      animation: marquee 32s linear infinite;
+    }
+
+    .auction-track:hover { animation-play-state: paused; }
+
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     .auction-card {
       border: 1px solid var(--border-gold);
       overflow: hidden;
+      width: 240px;
+      flex-shrink: 0;
     }
 
     .auction-card-photo {
       width: 100%;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 3 / 2;
       object-fit: cover;
       display: block;
     }
 
     .auction-card-body {
-      padding: 28px 28px 32px;
-      background: var(--tint);
+      padding: 18px 18px 22px;
+      background: var(--white);
     }
 
     .auction-card-logo {
-      height: 36px;
+      height: 28px;
       width: auto;
-      margin-bottom: 16px;
+      margin-bottom: 10px;
       display: block;
     }
 
     .auction-card-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 400;
       color: var(--black);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .auction-card-desc {
-      font-size: 14px;
+      font-size: 12px;
       color: var(--text-mid);
-      line-height: 1.7;
-      margin-bottom: 20px;
+      line-height: 1.6;
+      margin-bottom: 14px;
     }
 
     .auction-card-link {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 500;
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -535,12 +554,12 @@
     .auction-card-link:hover { border-color: var(--gold); }
 
     .auction-card-location {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 400;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     /* ─── Sponsors ─── */
@@ -841,62 +860,114 @@
       <p class="section-label">Raffle</p>
       <h2>Win the Night</h2>
       <p class="auction-intro">Local businesses and community partners are donating experiences and packages to be raffled on the night of the event. More to come — check back soon.</p>
-      <div class="auction-grid">
+      <div class="auction-carousel">
+        <div class="auction-track">
 
-        <div class="auction-card">
-          <img src="Othership Environment.png" alt="Othership" class="auction-card-photo" />
-          <div class="auction-card-body">
-            <img src="Othership Logo.png" alt="Othership" class="auction-card-logo" />
-            <div class="auction-card-title">5-Class Pack</div>
-            <p class="auction-card-desc">Othership is New York City's premier breathwork and cold plunge studio — a space designed to help you reset, recover, and reconnect. One lucky guest will win a 5-class pack to experience it firsthand.</p>
-            <a href="https://www.othership.us/" target="_blank" class="auction-card-link">Check out Othership</a>
+          <!-- set 1 -->
+          <div class="auction-card">
+            <img src="Othership Environment.png" alt="Othership" class="auction-card-photo" />
+            <div class="auction-card-body">
+              <img src="Othership Logo.png" alt="Othership logo" class="auction-card-logo" />
+              <div class="auction-card-title">Othership</div>
+              <p class="auction-card-location">New York City</p>
+              <p class="auction-card-desc">NYC's premier breathwork and cold plunge studio. One lucky guest wins a 5-class pack.</p>
+              <a href="https://www.othership.us/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Othership</a>
+            </div>
           </div>
-        </div>
-
-        <div class="auction-card">
-          <img src="rutherford.photo.png" alt="The Rutherford" class="auction-card-photo" />
-          <div class="auction-card-body">
-            <img src="rutherford.logo.png" alt="The Rutherford logo" class="auction-card-logo" />
-            <div class="auction-card-title">The Rutherford</div>
-            <p class="auction-card-location">Midtown Manhattan, steps from MSG and Penn Station</p>
-            <p class="auction-card-desc">A rooftop sports bar in Midtown Manhattan with unbeatable views of Madison Square Garden and screens tuned to whatever is on. The natural meeting point before tip-off, first pitch, or lights out, and the spot worth staying for after.</p>
-            <a href="https://www.therutherfordnyc.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out The Rutherford</a>
+          <div class="auction-card">
+            <img src="rutherford.photo.png" alt="The Rutherford" class="auction-card-photo" />
+            <div class="auction-card-body">
+              <img src="rutherford.logo.png" alt="The Rutherford logo" class="auction-card-logo" />
+              <div class="auction-card-title">The Rutherford</div>
+              <p class="auction-card-location">Midtown Manhattan</p>
+              <p class="auction-card-desc">Rooftop sports bar with unbeatable views of Madison Square Garden, steps from MSG and Penn Station.</p>
+              <a href="https://www.therutherfordnyc.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out The Rutherford</a>
+            </div>
           </div>
-        </div>
-
-        <div class="auction-card">
-          <img src="Avenida.photo.png" alt="Avenida" class="auction-card-photo" />
-          <div class="auction-card-body">
-            <img src="avenida.logo.png" alt="Avenida logo" class="auction-card-logo" />
-            <div class="auction-card-title">Avenida</div>
-            <p class="auction-card-location">Rooftop and patio dining in New York City</p>
-            <p class="auction-card-desc">Freshly squeezed traditional margaritas, cocktails, and authentic Mexican cuisine in the heart of New York City, with rooftop and patio views. Part of Host Restaurants, a hospitality group whose venues include Jackdaw, Cafe Maud, Odd Sister, and Dear Maud.</p>
-            <a href="https://www.avenida-nyc.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Avenida</a>
+          <div class="auction-card">
+            <img src="Avenida.photo.png" alt="Avenida" class="auction-card-photo" />
+            <div class="auction-card-body">
+              <img src="avenida.logo.png" alt="Avenida logo" class="auction-card-logo" />
+              <div class="auction-card-title">Avenida</div>
+              <p class="auction-card-location">New York City</p>
+              <p class="auction-card-desc">Traditional margaritas and authentic Mexican cuisine with rooftop and patio views in the heart of NYC.</p>
+              <a href="https://www.avenida-nyc.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Avenida</a>
+            </div>
           </div>
-        </div>
-
-        <div class="auction-card">
-          <img src="soothr.photo.png" alt="Soothr" class="auction-card-photo" />
-          <div class="auction-card-body">
-            <img src="soothr.logo.png" alt="Soothr logo" class="auction-card-logo" />
-            <div class="auction-card-title">Soothr</div>
-            <p class="auction-card-location">East Village, New York City</p>
-            <p class="auction-card-desc">Soothr, pronounced "Sood," is the Thai word for "recipe." Founded by close friends raised in different regions of Thailand, the East Village restaurant specializes in generational family noodle recipes served in the bustling, energetic spirit of Bangkok street food.</p>
-            <a href="https://soothrnyc.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Soothr</a>
+          <div class="auction-card">
+            <img src="soothr.photo.png" alt="Soothr" class="auction-card-photo" />
+            <div class="auction-card-body">
+              <img src="soothr.logo.png" alt="Soothr logo" class="auction-card-logo" />
+              <div class="auction-card-title">Soothr</div>
+              <p class="auction-card-location">East Village, New York City</p>
+              <p class="auction-card-desc">Generational Thai noodle recipes served in the energetic spirit of Bangkok street food.</p>
+              <a href="https://soothrnyc.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Soothr</a>
+            </div>
           </div>
-        </div>
-
-        <div class="auction-card">
-          <img src="oldmates.photo.png" alt="Old Mates Pub" class="auction-card-photo" />
-          <div class="auction-card-body">
-            <img src="oldmates.logo.png" alt="Old Mates Pub logo" class="auction-card-logo" />
-            <div class="auction-card-title">Old Mates Pub</div>
-            <p class="auction-card-location">Downtown Manhattan</p>
-            <p class="auction-card-desc">Authentic Australian pub culture in Downtown Manhattan, with classic Aussie fare, an all-Australian wine list, and the largest collection of Australian spirits and beers in NYC. Catch a game at the 60-foot Front Bar, dine in The Harbour Room, or head into the Sticky Carpet Lounge.</p>
-            <a href="https://www.oldmates.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Old Mates Pub</a>
+          <div class="auction-card">
+            <img src="oldmates.photo.png" alt="Old Mates Pub" class="auction-card-photo" />
+            <div class="auction-card-body">
+              <img src="oldmates.logo.png" alt="Old Mates Pub logo" class="auction-card-logo" />
+              <div class="auction-card-title">Old Mates Pub</div>
+              <p class="auction-card-location">Downtown Manhattan</p>
+              <p class="auction-card-desc">Authentic Australian pub with the largest collection of Australian spirits and beers in NYC.</p>
+              <a href="https://www.oldmates.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Old Mates Pub</a>
+            </div>
           </div>
-        </div>
 
+          <!-- set 2 — identical copy for seamless loop -->
+          <div class="auction-card">
+            <img src="Othership Environment.png" alt="Othership" class="auction-card-photo" />
+            <div class="auction-card-body">
+              <img src="Othership Logo.png" alt="Othership logo" class="auction-card-logo" />
+              <div class="auction-card-title">Othership</div>
+              <p class="auction-card-location">New York City</p>
+              <p class="auction-card-desc">NYC's premier breathwork and cold plunge studio. One lucky guest wins a 5-class pack.</p>
+              <a href="https://www.othership.us/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Othership</a>
+            </div>
+          </div>
+          <div class="auction-card">
+            <img src="rutherford.photo.png" alt="The Rutherford" class="auction-card-photo" />
+            <div class="auction-card-body">
+              <img src="rutherford.logo.png" alt="The Rutherford logo" class="auction-card-logo" />
+              <div class="auction-card-title">The Rutherford</div>
+              <p class="auction-card-location">Midtown Manhattan</p>
+              <p class="auction-card-desc">Rooftop sports bar with unbeatable views of Madison Square Garden, steps from MSG and Penn Station.</p>
+              <a href="https://www.therutherfordnyc.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out The Rutherford</a>
+            </div>
+          </div>
+          <div class="auction-card">
+            <img src="Avenida.photo.png" alt="Avenida" class="auction-card-photo" />
+            <div class="auction-card-body">
+              <img src="avenida.logo.png" alt="Avenida logo" class="auction-card-logo" />
+              <div class="auction-card-title">Avenida</div>
+              <p class="auction-card-location">New York City</p>
+              <p class="auction-card-desc">Traditional margaritas and authentic Mexican cuisine with rooftop and patio views in the heart of NYC.</p>
+              <a href="https://www.avenida-nyc.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Avenida</a>
+            </div>
+          </div>
+          <div class="auction-card">
+            <img src="soothr.photo.png" alt="Soothr" class="auction-card-photo" />
+            <div class="auction-card-body">
+              <img src="soothr.logo.png" alt="Soothr logo" class="auction-card-logo" />
+              <div class="auction-card-title">Soothr</div>
+              <p class="auction-card-location">East Village, New York City</p>
+              <p class="auction-card-desc">Generational Thai noodle recipes served in the energetic spirit of Bangkok street food.</p>
+              <a href="https://soothrnyc.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Soothr</a>
+            </div>
+          </div>
+          <div class="auction-card">
+            <img src="oldmates.photo.png" alt="Old Mates Pub" class="auction-card-photo" />
+            <div class="auction-card-body">
+              <img src="oldmates.logo.png" alt="Old Mates Pub logo" class="auction-card-logo" />
+              <div class="auction-card-title">Old Mates Pub</div>
+              <p class="auction-card-location">Downtown Manhattan</p>
+              <p class="auction-card-desc">Authentic Australian pub with the largest collection of Australian spirits and beers in NYC.</p>
+              <a href="https://www.oldmates.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Old Mates Pub</a>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
