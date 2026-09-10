@@ -236,15 +236,16 @@
     .about-text p:last-child { margin-bottom: 0; }
 
     .event-card {
-      background: var(--black);
+      background: var(--white);
+      border: 1px solid var(--border-gold);
       padding: 0;
       display: flex;
       flex-direction: column;
     }
 
     .event-card-row {
-      padding: 24px 32px;
-      border-bottom: 1px solid #2e2e2e;
+      padding: 22px 32px;
+      border-bottom: 1px solid var(--border-gold);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -258,7 +259,7 @@
       font-weight: 500;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: #555;
+      color: var(--gold);
       flex-shrink: 0;
     }
 
@@ -266,7 +267,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
       font-weight: 400;
-      color: var(--white);
+      color: var(--black);
       text-align: right;
       line-height: 1.3;
     }
@@ -918,7 +919,7 @@
         </div>
         <div class="event-card-row">
           <span class="event-card-label">Benefiting</span>
-          <img src="MSK-logo.png" alt="Memorial Sloan Kettering" class="event-card-logo" style="filter:brightness(0) invert(1);opacity:0.85;" />
+          <img src="MSK-logo.png" alt="Memorial Sloan Kettering" class="event-card-logo" />
         </div>
       </div>
     </div>
