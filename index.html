@@ -365,6 +365,106 @@
       align-self: center;
     }
 
+    /* ─── Sponsors ─── */
+    #sponsors {
+      padding: 96px 48px;
+      background: var(--black);
+      border-bottom: 1px solid #333;
+    }
+
+    .sponsors-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .sponsors-inner > .section-label {
+      color: var(--border-gold);
+      margin-bottom: 56px;
+    }
+
+    .sponsor-tier {
+      margin-bottom: 64px;
+    }
+
+    .sponsor-tier:last-child { margin-bottom: 0; }
+
+    .sponsor-tier-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 28px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #333;
+    }
+
+    .sponsor-card {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      padding: 40px 48px;
+      border: 1px solid #333;
+      flex-wrap: wrap;
+    }
+
+    .sponsor-card.presenting {
+      padding: 52px 56px;
+    }
+
+    .sponsor-logo-wrap {
+      flex-shrink: 0;
+      background: var(--white);
+      padding: 20px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sponsor-logo-wrap img {
+      height: 52px;
+      width: auto;
+      display: block;
+    }
+
+    .sponsor-card.presenting .sponsor-logo-wrap img {
+      height: 68px;
+    }
+
+    .sponsor-card-text h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .sponsor-card.presenting .sponsor-card-text h3 {
+      font-size: 36px;
+    }
+
+    .sponsor-card-text p {
+      font-size: 14px;
+      color: #888;
+      line-height: 1.7;
+      max-width: 580px;
+    }
+
+    .sponsor-card-text a.sponsor-link {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--border-gold);
+      border-bottom: 1px solid #444;
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+
+    .sponsor-card-text a.sponsor-link:hover { border-color: var(--gold); color: var(--gold); }
+
     /* ─── Fundraising Tracker ─── */
     #donate {
       padding: 96px 48px;
@@ -705,7 +805,9 @@
       nav { padding: 0 24px; height: 60px; }
       .nav-links { display: none; }
 
-      #hero, #about, #venue, #donate, #auction, #sponsors, #tickets { padding: 72px 24px; }
+      #hero, #about, #venue, #sponsors, #donate, #auction, #tickets { padding: 72px 24px; }
+      .sponsor-card { padding: 28px 24px; gap: 28px; }
+      .sponsor-card.presenting { padding: 32px 24px; }
 
       .about-inner { grid-template-columns: 1fr; gap: 48px; }
       .stats-grid  { grid-template-columns: 1fr 1fr; }
@@ -742,6 +844,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#venue">Venue</a></li>
+      <li><a href="#sponsors">Sponsors</a></li>
       <li><a href="#donate">Donate</a></li>
       <li><a href="#auction">Raffle</a></li>
       <li><a href="#tickets">Tickets</a></li>
@@ -825,6 +928,42 @@
           <p>Doors open at 8:00 PM<br />Main event: 8:00 PM – Midnight<br />After-party: 12:00 AM – 2:00 AM (TBD)</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ─── Sponsors ─── -->
+  <section id="sponsors">
+    <div class="sponsors-inner">
+      <p class="section-label">Our Partners</p>
+
+      <div class="sponsor-tier">
+        <div class="sponsor-tier-label">Lead Sponsor</div>
+        <div class="sponsor-card presenting">
+          <div class="sponsor-logo-wrap">
+            <img src="Ardian-logo.png" alt="Ardian logo" />
+          </div>
+          <div class="sponsor-card-text">
+            <h3>Ardian</h3>
+            <p>Founded in 1996 and independent since 2013, Ardian is a Paris-based private markets investment firm managing or advising roughly $200 billion for more than 1,900 clients across private equity, real assets, and credit. With 22 offices worldwide, Ardian is recognized as one of the largest secondaries buyers in the world and a defining force in global private markets.</p>
+            <a href="https://www.ardian.com/" target="_blank" rel="noopener noreferrer" class="sponsor-link">Visit Ardian</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="sponsor-tier">
+        <div class="sponsor-tier-label">Photography Sponsor</div>
+        <div class="sponsor-card">
+          <div class="sponsor-logo-wrap">
+            <img src="baywaterlogo.png" alt="Baywater Properties logo" />
+          </div>
+          <div class="sponsor-card-text">
+            <h3>Baywater Properties</h3>
+            <p>A privately held, full-service commercial real estate company serving Fairfield County, Connecticut and Westchester County, New York. Baywater's approach centers on creating lasting value for the people and communities they work with, from tenants and investors to the neighborhoods they call home.</p>
+            <a href="https://baywater.net/" target="_blank" rel="noopener noreferrer" class="sponsor-link">Visit Baywater Properties</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
