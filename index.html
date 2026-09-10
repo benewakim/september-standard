@@ -305,48 +305,20 @@
       margin-bottom: 48px;
     }
 
-    /* ─── Venue Slideshow ─── */
-    .venue-slideshow {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 7;
-      overflow: hidden;
-      margin-bottom: 48px;
-      background: #e8deca;
+    /* ─── Venue Photos ─── */
+    .venue-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 40px;
     }
 
-    .venue-slideshow img {
-      position: absolute;
-      inset: 0;
+    .venue-photos img {
       width: 100%;
-      height: 100%;
+      aspect-ratio: 4 / 3;
       object-fit: cover;
-      opacity: 0;
-      transition: opacity 0.9s ease;
+      display: block;
     }
-    .venue-slideshow img.active { opacity: 1; }
-
-    .slide-dots {
-      position: absolute;
-      bottom: 18px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-      z-index: 2;
-    }
-
-    .slide-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.45);
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .slide-dot.active { background: var(--white); }
 
     .venue-info {
       display: flex;
@@ -931,26 +903,15 @@
       <p class="section-label">The Venue</p>
       <h2>74Wythe, Williamsburg</h2>
       <p class="venue-desc">Fifteen thousand square feet across three stories and four interconnected spaces, anchored by a rooftop terrace with unobstructed views of the Manhattan skyline and the Brooklyn waterfront. It's the kind of place that makes the night feel like it matters.</p>
-      <div class="venue-slideshow" id="venueSlideshow">
-        <img src="74Wythe-1.png" alt="74Wythe venue" class="active" />
-        <img src="74Wythe-2.png" alt="74Wythe venue" />
-        <img src="74Wythe-3.png" alt="74Wythe venue" />
-        <div class="slide-dots">
-          <button class="slide-dot active" data-index="0"></button>
-          <button class="slide-dot" data-index="1"></button>
-          <button class="slide-dot" data-index="2"></button>
-        </div>
+      <div class="venue-photos">
+        <img src="Wythe1.png" alt="74Wythe" />
+        <img src="Wythe2.png" alt="74Wythe" />
       </div>
       <div class="venue-info">
         <div>
           <h3>74Wythe</h3>
           <p>74 Wythe Avenue<br />Williamsburg, Brooklyn, NY 11249</p>
           <a href="https://www.74wythe.com" target="_blank" class="venue-link">Visit Venue Website</a>
-        </div>
-        <div class="venue-divider"></div>
-        <div>
-          <h3>Event Hours</h3>
-          <p>Doors open at 8:00 PM<br />Doors close at 9:45 PM<br />Main event: 8:00 PM – 12:00 AM<br />After-party: 12:00 AM (TBD)</p>
         </div>
       </div>
     </div>
@@ -1216,34 +1177,6 @@
       });
     })();
 
-    /* ─── Venue slideshow ─── */
-    (function () {
-      const slides = document.querySelectorAll('#venueSlideshow img');
-      const dots   = document.querySelectorAll('#venueSlideshow .slide-dot');
-      let current  = 0;
-      let timer;
-
-      function goTo(n) {
-        slides[current].classList.remove('active');
-        dots[current].classList.remove('active');
-        current = (n + slides.length) % slides.length;
-        slides[current].classList.add('active');
-        dots[current].classList.add('active');
-      }
-
-      function next() { goTo(current + 1); }
-      function startTimer() { timer = setInterval(next, 4000); }
-      function resetTimer()  { clearInterval(timer); startTimer(); }
-
-      dots.forEach(function (dot) {
-        dot.addEventListener('click', function () {
-          goTo(parseInt(this.dataset.index));
-          resetTimer();
-        });
-      });
-
-      startTimer();
-    })();
   </script>
 
 </body>
