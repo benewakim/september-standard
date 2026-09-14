@@ -568,21 +568,33 @@
     .auction-carousel {
       overflow: hidden;
       width: 100%;
-      margin-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
     .auction-track {
       display: flex;
       gap: 20px;
       width: max-content;
-      animation: marquee 32s linear infinite;
+      animation: marquee 36s linear infinite;
     }
 
-    .auction-track:hover { animation-play-state: paused; }
+    .auction-track-reverse {
+      animation: marquee-reverse 36s linear infinite;
+    }
+
+    .auction-track:hover,
+    .auction-track-reverse:hover { animation-play-state: paused; }
 
     @keyframes marquee {
       0%   { transform: translateX(0); }
       100% { transform: translateX(-50%); }
+    }
+
+    @keyframes marquee-reverse {
+      0%   { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
     }
 
     .auction-card {
@@ -965,118 +977,9 @@
       <h2>Win the Night</h2>
       <p class="auction-intro">Local businesses and community partners are donating experiences and packages to be raffled on the night of the event. More to come. Check back soon.</p>
       <div class="auction-carousel">
+
+        <!-- Row 1 — scrolls left -->
         <div class="auction-track">
-
-          <!-- set 1 -->
-          <div class="auction-card">
-            <img src="Othership Environment.png" alt="Othership" class="auction-card-photo" />
-            <div class="auction-card-body">
-              <img src="Othership Logo.png" alt="Othership logo" class="auction-card-logo" />
-              <div class="auction-card-title">Othership</div>
-              <p class="auction-card-location">New York City</p>
-              <p class="auction-card-desc">NYC's premier breathwork and cold plunge studio. One lucky guest wins a 5-class pack.</p>
-              <a href="https://www.othership.us/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Othership</a>
-            </div>
-          </div>
-          <div class="auction-card">
-            <img src="rutherford.photo.png" alt="The Rutherford" class="auction-card-photo" />
-            <div class="auction-card-body">
-              <img src="rutherford.logo.png" alt="The Rutherford logo" class="auction-card-logo" />
-              <div class="auction-card-title">The Rutherford</div>
-              <p class="auction-card-location">Midtown Manhattan</p>
-              <p class="auction-card-desc">Rooftop sports bar with unbeatable views of Madison Square Garden, steps from MSG and Penn Station.</p>
-              <a href="https://www.therutherfordnyc.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out The Rutherford</a>
-            </div>
-          </div>
-          <div class="auction-card">
-            <img src="Avenida.photo.png" alt="Avenida" class="auction-card-photo" />
-            <div class="auction-card-body">
-              <img src="avenida.logo.png?v=2" alt="Avenida logo" class="auction-card-logo" />
-              <div class="auction-card-title">Avenida</div>
-              <p class="auction-card-location">New York City</p>
-              <p class="auction-card-desc">Traditional margaritas and authentic Mexican cuisine with rooftop and patio views in the heart of NYC.</p>
-              <a href="https://www.avenida-nyc.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Avenida</a>
-            </div>
-          </div>
-          <div class="auction-card">
-            <img src="soothr.photo.png" alt="Soothr" class="auction-card-photo" />
-            <div class="auction-card-body">
-              <img src="soothr.logo.png" alt="Soothr logo" class="auction-card-logo" />
-              <div class="auction-card-title">Soothr</div>
-              <p class="auction-card-location">East Village, New York City</p>
-              <p class="auction-card-desc">Generational Thai noodle recipes served in the energetic spirit of Bangkok street food.</p>
-              <a href="https://soothrnyc.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Soothr</a>
-            </div>
-          </div>
-          <div class="auction-card">
-            <img src="oldmates.photo.png" alt="Old Mates Pub" class="auction-card-photo" />
-            <div class="auction-card-body">
-              <img src="oldmates.logo.png?v=2" alt="Old Mates Pub logo" class="auction-card-logo" />
-              <div class="auction-card-title">Old Mates Pub</div>
-              <p class="auction-card-location">Downtown Manhattan</p>
-              <p class="auction-card-desc">Authentic Australian pub with the largest collection of Australian spirits and beers in NYC.</p>
-              <a href="https://www.oldmates.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Old Mates Pub</a>
-            </div>
-          </div>
-
-          <div class="auction-card">
-            <div class="auction-card-photo" style="background:#1a1a2e;display:flex;align-items:center;justify-content:center;padding:24px;">
-              <img src="Giants Nation Logo.png" alt="Giants Nation Show" style="width:100%;height:100%;object-fit:contain;" />
-            </div>
-            <div class="auction-card-body">
-              <img src="Giants Nation Logo.png" alt="Giants Nation Show logo" class="auction-card-logo" />
-              <div class="auction-card-title">Giants Nation Show</div>
-              <p class="auction-card-location">New York Giants</p>
-              <p class="auction-card-desc">The number one show for all things Giants. Get news, analysis, and fan talk all in one place. One lucky guest will receive a Giants Jersey of their choice courtesy of GNS!</p>
-              <a href="https://giantsnationshow.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Giants Nation Show</a>
-            </div>
-          </div>
-
-          <div class="auction-card">
-            <img src="Bode-photo.png" alt="Bode NYC" class="auction-card-photo" />
-            <div class="auction-card-body">
-              <img src="Bode-logo.png" alt="Bode NYC logo" class="auction-card-logo" />
-              <div class="auction-card-title">Bode NYC</div>
-              <p class="auction-card-location">New York City</p>
-              <p class="auction-card-desc">One lucky guest wins a free month of classes at Bode NYC, a $370 value.</p>
-              <a href="https://bodenyc.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Bode NYC</a>
-            </div>
-          </div>
-          <div class="auction-card">
-            <img src="Strakers-image.png" alt="Strakers" class="auction-card-photo" />
-            <div class="auction-card-body">
-              <img src="Straker's_Wordmark_Green.png" alt="Strakers logo" class="auction-card-logo" />
-              <div class="auction-card-title">Strakers</div>
-              <p class="auction-card-location">New York City</p>
-              <p class="auction-card-desc">One lucky guest wins a gift card to Strakers NYC — Thomas Straker's debut New York restaurant, opening this fall in SoHo.</p>
-              <a href="https://strakers.nyc/index.html" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Strakers</a>
-            </div>
-          </div>
-          <div class="auction-card">
-            <div class="auction-card-photo" style="background:#003087;display:flex;align-items:center;justify-content:center;padding:32px;">
-              <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:200px;">
-                <text x="100" y="55" font-family="Georgia,serif" font-size="48" font-weight="bold" fill="#C4B454" text-anchor="middle">NY</text>
-                <text x="100" y="100" font-family="Georgia,serif" font-size="20" fill="#ffffff" text-anchor="middle" letter-spacing="3">YANKEES</text>
-              </svg>
-            </div>
-            <div class="auction-card-body">
-              <img src="Marsh Logo.jpg" alt="Marsh logo" class="auction-card-logo" />
-              <div class="auction-card-title">NY Yankees Tickets</div>
-              <p class="auction-card-location">Yankee Stadium, The Bronx</p>
-              <p class="auction-card-desc">4 premium seats to a 2027 NY Yankees game of your choosing, plus a premium parking pass. Provided by Marsh.</p>
-              <a href="https://marsh.com" target="_blank" rel="noopener noreferrer" class="auction-card-link">About Marsh</a>
-            </div>
-          </div>
-          <div class="auction-card">
-            <img src="Bruins-signed jersey.png" alt="Signed Boston Bruins Jersey" class="auction-card-photo" />
-            <div class="auction-card-body">
-              <div class="auction-card-title">Rangers vs. Bruins + Signed Jersey</div>
-              <p class="auction-card-location">Madison Square Garden, New York City</p>
-              <p class="auction-card-desc">Two tickets to a Rangers vs. Bruins game, plus a Boston Bruins jersey signed by 21 players — including Charlie McAvoy, David Pastrnak, Jeremy Swayman, Hampus Lindholm, Elias Lindholm, JJ Peterka, and more.</p>
-            </div>
-          </div>
-
-          <!-- set 2 — identical copy for seamless loop -->
           <div class="auction-card">
             <img src="Othership Environment.png" alt="Othership" class="auction-card-photo" />
             <div class="auction-card-body">
@@ -1139,51 +1042,188 @@
               <a href="https://giantsnationshow.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Giants Nation Show</a>
             </div>
           </div>
+          <!-- set 1 duplicate -->
           <div class="auction-card">
-            <img src="Bode-photo.png" alt="Bode NYC" class="auction-card-photo" />
+            <img src="Othership Environment.png" alt="Othership" class="auction-card-photo" />
             <div class="auction-card-body">
-              <img src="Bode-logo.png" alt="Bode NYC logo" class="auction-card-logo" />
-              <div class="auction-card-title">Bode NYC</div>
+              <img src="Othership Logo.png" alt="Othership logo" class="auction-card-logo" />
+              <div class="auction-card-title">Othership</div>
               <p class="auction-card-location">New York City</p>
-              <p class="auction-card-desc">One lucky guest wins a free month of classes at Bode NYC, a $370 value.</p>
-              <a href="https://bodenyc.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Bode NYC</a>
+              <p class="auction-card-desc">NYC's premier breathwork and cold plunge studio. One lucky guest wins a 5-class pack.</p>
+              <a href="https://www.othership.us/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Othership</a>
             </div>
           </div>
           <div class="auction-card">
-            <img src="Strakers-image.png" alt="Strakers" class="auction-card-photo" />
+            <img src="rutherford.photo.png" alt="The Rutherford" class="auction-card-photo" />
             <div class="auction-card-body">
-              <img src="Straker's_Wordmark_Green.png" alt="Strakers logo" class="auction-card-logo" />
-              <div class="auction-card-title">Strakers</div>
+              <img src="rutherford.logo.png" alt="The Rutherford logo" class="auction-card-logo" />
+              <div class="auction-card-title">The Rutherford</div>
+              <p class="auction-card-location">Midtown Manhattan</p>
+              <p class="auction-card-desc">Rooftop sports bar with unbeatable views of Madison Square Garden, steps from MSG and Penn Station.</p>
+              <a href="https://www.therutherfordnyc.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out The Rutherford</a>
+            </div>
+          </div>
+          <div class="auction-card">
+            <img src="Avenida.photo.png" alt="Avenida" class="auction-card-photo" />
+            <div class="auction-card-body">
+              <img src="avenida.logo.png?v=2" alt="Avenida logo" class="auction-card-logo" />
+              <div class="auction-card-title">Avenida</div>
               <p class="auction-card-location">New York City</p>
-              <p class="auction-card-desc">One lucky guest wins a gift card to Strakers NYC — Thomas Straker's debut New York restaurant, opening this fall in SoHo.</p>
-              <a href="https://strakers.nyc/index.html" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Strakers</a>
+              <p class="auction-card-desc">Traditional margaritas and authentic Mexican cuisine with rooftop and patio views in the heart of NYC.</p>
+              <a href="https://www.avenida-nyc.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Avenida</a>
             </div>
           </div>
           <div class="auction-card">
-            <div class="auction-card-photo" style="background:#003087;display:flex;align-items:center;justify-content:center;padding:32px;">
-              <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:200px;">
-                <text x="100" y="55" font-family="Georgia,serif" font-size="48" font-weight="bold" fill="#C4B454" text-anchor="middle">NY</text>
-                <text x="100" y="100" font-family="Georgia,serif" font-size="20" fill="#ffffff" text-anchor="middle" letter-spacing="3">YANKEES</text>
-              </svg>
-            </div>
+            <img src="soothr.photo.png" alt="Soothr" class="auction-card-photo" />
             <div class="auction-card-body">
-              <img src="Marsh Logo.jpg" alt="Marsh logo" class="auction-card-logo" />
-              <div class="auction-card-title">NY Yankees Tickets</div>
-              <p class="auction-card-location">Yankee Stadium, The Bronx</p>
-              <p class="auction-card-desc">4 premium seats to a 2027 NY Yankees game of your choosing, plus a premium parking pass. Provided by Marsh.</p>
-              <a href="https://marsh.com" target="_blank" rel="noopener noreferrer" class="auction-card-link">About Marsh</a>
+              <img src="soothr.logo.png" alt="Soothr logo" class="auction-card-logo" />
+              <div class="auction-card-title">Soothr</div>
+              <p class="auction-card-location">East Village, New York City</p>
+              <p class="auction-card-desc">Generational Thai noodle recipes served in the energetic spirit of Bangkok street food.</p>
+              <a href="https://soothrnyc.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Soothr</a>
             </div>
           </div>
           <div class="auction-card">
-            <img src="Bruins-signed jersey.png" alt="Signed Boston Bruins Jersey" class="auction-card-photo" />
+            <img src="oldmates.photo.png" alt="Old Mates Pub" class="auction-card-photo" />
             <div class="auction-card-body">
-              <div class="auction-card-title">Rangers vs. Bruins + Signed Jersey</div>
-              <p class="auction-card-location">Madison Square Garden, New York City</p>
-              <p class="auction-card-desc">Two tickets to a Rangers vs. Bruins game, plus a Boston Bruins jersey signed by 21 players — including Charlie McAvoy, David Pastrnak, Jeremy Swayman, Hampus Lindholm, Elias Lindholm, JJ Peterka, and more.</p>
+              <img src="oldmates.logo.png?v=2" alt="Old Mates Pub logo" class="auction-card-logo" />
+              <div class="auction-card-title">Old Mates Pub</div>
+              <p class="auction-card-location">Downtown Manhattan</p>
+              <p class="auction-card-desc">Authentic Australian pub with the largest collection of Australian spirits and beers in NYC.</p>
+              <a href="https://www.oldmates.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Old Mates Pub</a>
             </div>
           </div>
-
+          <div class="auction-card">
+            <div class="auction-card-photo" style="background:#1a1a2e;display:flex;align-items:center;justify-content:center;padding:24px;">
+              <img src="Giants Nation Logo.png" alt="Giants Nation Show" style="width:100%;height:100%;object-fit:contain;" />
+            </div>
+            <div class="auction-card-body">
+              <img src="Giants Nation Logo.png" alt="Giants Nation Show logo" class="auction-card-logo" />
+              <div class="auction-card-title">Giants Nation Show</div>
+              <p class="auction-card-location">New York Giants</p>
+              <p class="auction-card-desc">The number one show for all things Giants. Get news, analysis, and fan talk all in one place. One lucky guest will receive a Giants Jersey of their choice courtesy of GNS!</p>
+              <a href="https://giantsnationshow.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Giants Nation Show</a>
+            </div>
+          </div>
         </div>
+
+        <!-- Row 2 — scrolls right -->
+        <div class="auction-track auction-track-reverse">
+          <div class="auction-card">
+            <img src="Bode-photo.png" alt="Bode NYC" class="auction-card-photo" />
+            <div class="auction-card-body">
+              <img src="Bode-logo.png" alt="Bode NYC logo" class="auction-card-logo" />
+              <div class="auction-card-title">Bode NYC</div>
+              <p class="auction-card-location">New York City</p>
+              <p class="auction-card-desc">One lucky guest wins a free month of classes at Bode NYC, a $370 value.</p>
+              <a href="https://bodenyc.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Bode NYC</a>
+            </div>
+          </div>
+          <div class="auction-card">
+            <img src="Strakers-image.png" alt="Strakers" class="auction-card-photo" />
+            <div class="auction-card-body">
+              <img src="Straker's_Wordmark_Green.png" alt="Strakers logo" class="auction-card-logo" />
+              <div class="auction-card-title">Strakers</div>
+              <p class="auction-card-location">New York City</p>
+              <p class="auction-card-desc">One lucky guest wins a gift card to Strakers NYC — Thomas Straker's debut New York restaurant, opening this fall in SoHo.</p>
+              <a href="https://strakers.nyc/index.html" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Strakers</a>
+            </div>
+          </div>
+          <div class="auction-card">
+            <div class="auction-card-photo" style="background:#003087;display:flex;align-items:center;justify-content:center;padding:32px;">
+              <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:200px;">
+                <text x="100" y="55" font-family="Georgia,serif" font-size="48" font-weight="bold" fill="#C4B454" text-anchor="middle">NY</text>
+                <text x="100" y="100" font-family="Georgia,serif" font-size="20" fill="#ffffff" text-anchor="middle" letter-spacing="3">YANKEES</text>
+              </svg>
+            </div>
+            <div class="auction-card-body">
+              <img src="Marsh Logo.jpg" alt="Marsh logo" class="auction-card-logo" />
+              <div class="auction-card-title">NY Yankees Tickets</div>
+              <p class="auction-card-location">Yankee Stadium, The Bronx</p>
+              <p class="auction-card-desc">4 premium seats to a 2027 NY Yankees game of your choosing, plus a premium parking pass. Provided by Marsh.</p>
+              <a href="https://marsh.com" target="_blank" rel="noopener noreferrer" class="auction-card-link">About Marsh</a>
+            </div>
+          </div>
+          <div class="auction-card">
+            <img src="Bruins-signed jersey.png" alt="Signed Boston Bruins Jersey" class="auction-card-photo" />
+            <div class="auction-card-body">
+              <div class="auction-card-title">Rangers vs. Bruins + Signed Jersey</div>
+              <p class="auction-card-location">Madison Square Garden, New York City</p>
+              <p class="auction-card-desc">Two tickets to a Rangers vs. Bruins game, plus a Boston Bruins jersey signed by 21 players — including Charlie McAvoy, David Pastrnak, Jeremy Swayman, Hampus Lindholm, Elias Lindholm, JJ Peterka, and more.</p>
+            </div>
+          </div>
+          <div class="auction-card">
+            <div class="auction-card-photo" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;padding:32px;">
+              <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:200px;">
+                <text x="100" y="52" font-family="Georgia,serif" font-size="36" font-weight="bold" fill="#B8902A" text-anchor="middle" letter-spacing="2">TORRISI</text>
+              </svg>
+            </div>
+            <div class="auction-card-body">
+              <div class="auction-card-title">Torrisi</div>
+              <p class="auction-card-location">NoLIta, New York City</p>
+              <p class="auction-card-desc">One lucky guest wins a 3-course dinner for four with wine pairings at Torrisi — one of New York's most celebrated restaurants. A $600 value.</p>
+              <a href="https://www.torrisinyc.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">About Torrisi</a>
+            </div>
+          </div>
+          <!-- set 2 duplicate -->
+          <div class="auction-card">
+            <img src="Bode-photo.png" alt="Bode NYC" class="auction-card-photo" />
+            <div class="auction-card-body">
+              <img src="Bode-logo.png" alt="Bode NYC logo" class="auction-card-logo" />
+              <div class="auction-card-title">Bode NYC</div>
+              <p class="auction-card-location">New York City</p>
+              <p class="auction-card-desc">One lucky guest wins a free month of classes at Bode NYC, a $370 value.</p>
+              <a href="https://bodenyc.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Bode NYC</a>
+            </div>
+          </div>
+          <div class="auction-card">
+            <img src="Strakers-image.png" alt="Strakers" class="auction-card-photo" />
+            <div class="auction-card-body">
+              <img src="Straker's_Wordmark_Green.png" alt="Strakers logo" class="auction-card-logo" />
+              <div class="auction-card-title">Strakers</div>
+              <p class="auction-card-location">New York City</p>
+              <p class="auction-card-desc">One lucky guest wins a gift card to Strakers NYC — Thomas Straker's debut New York restaurant, opening this fall in SoHo.</p>
+              <a href="https://strakers.nyc/index.html" target="_blank" rel="noopener noreferrer" class="auction-card-link">Check out Strakers</a>
+            </div>
+          </div>
+          <div class="auction-card">
+            <div class="auction-card-photo" style="background:#003087;display:flex;align-items:center;justify-content:center;padding:32px;">
+              <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:200px;">
+                <text x="100" y="55" font-family="Georgia,serif" font-size="48" font-weight="bold" fill="#C4B454" text-anchor="middle">NY</text>
+                <text x="100" y="100" font-family="Georgia,serif" font-size="20" fill="#ffffff" text-anchor="middle" letter-spacing="3">YANKEES</text>
+              </svg>
+            </div>
+            <div class="auction-card-body">
+              <img src="Marsh Logo.jpg" alt="Marsh logo" class="auction-card-logo" />
+              <div class="auction-card-title">NY Yankees Tickets</div>
+              <p class="auction-card-location">Yankee Stadium, The Bronx</p>
+              <p class="auction-card-desc">4 premium seats to a 2027 NY Yankees game of your choosing, plus a premium parking pass. Provided by Marsh.</p>
+              <a href="https://marsh.com" target="_blank" rel="noopener noreferrer" class="auction-card-link">About Marsh</a>
+            </div>
+          </div>
+          <div class="auction-card">
+            <img src="Bruins-signed jersey.png" alt="Signed Boston Bruins Jersey" class="auction-card-photo" />
+            <div class="auction-card-body">
+              <div class="auction-card-title">Rangers vs. Bruins + Signed Jersey</div>
+              <p class="auction-card-location">Madison Square Garden, New York City</p>
+              <p class="auction-card-desc">Two tickets to a Rangers vs. Bruins game, plus a Boston Bruins jersey signed by 21 players — including Charlie McAvoy, David Pastrnak, Jeremy Swayman, Hampus Lindholm, Elias Lindholm, JJ Peterka, and more.</p>
+            </div>
+          </div>
+          <div class="auction-card">
+            <div class="auction-card-photo" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;padding:32px;">
+              <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:200px;">
+                <text x="100" y="52" font-family="Georgia,serif" font-size="36" font-weight="bold" fill="#B8902A" text-anchor="middle" letter-spacing="2">TORRISI</text>
+              </svg>
+            </div>
+            <div class="auction-card-body">
+              <div class="auction-card-title">Torrisi</div>
+              <p class="auction-card-location">NoLIta, New York City</p>
+              <p class="auction-card-desc">One lucky guest wins a 3-course dinner for four with wine pairings at Torrisi — one of New York's most celebrated restaurants. A $600 value.</p>
+              <a href="https://www.torrisinyc.com/" target="_blank" rel="noopener noreferrer" class="auction-card-link">About Torrisi</a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
